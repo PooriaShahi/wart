@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.wordpress.name }}
+  label:
+    app: {{ .Values.wordpress.name }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Values.wordpress.name }}
+  replicas: {{ default 1 .Values.wordpress.replica | int }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.wordpress.name }}
+    spec:
+      containers:
+      - name: {{ .Values.wordpress.containerName }}
+        image: "{{ .Values.wordpress.image }}"
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: {{ .Values.wordpress.internalPort | int }}
+        livenessProbe:
+          httpGet:
+            path: /
+            port: {{ .Values.wordpress.internalPort | int }}
+        readinessProbe:
+          httpGet:
+            path: /
+            port: {{ .Values.wordpress.internalPort | int }}

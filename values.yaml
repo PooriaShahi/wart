@@ -1,0 +1,32 @@
+wordpress:
+  replica: 1
+  name: wp-app
+  containerName: wordpress
+  image: wordpress:latest
+  internalPort: 80
+  service:
+    type: ClusterIP
+    externalPort: 80
+    name: wp-svc
+mysql:
+  replica: 1
+  name: mysql-app
+  containerName: mysql
+  image: mysql:latest
+  internalPort: 3306
+  service:
+    type: ClusterIP
+    externalPort: 3306
+    name: mysql-svc
+  pv:
+    name: mysql-pv
+    path: /mnt/data
+  pvc:
+    name: mysql-pvc
+    storageClass: manual
+    size: 5
+  secret:
+    name: mysql-secret
+    password:
+      key: rootPassword
+      value: "hadsgdauhoasidjmasldm"
