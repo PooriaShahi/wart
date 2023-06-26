@@ -6,4 +6,4 @@ metadata:
     app: {{ .Values.mysql.name }}
 data:
   {{ .Values.mysql.config.database.key }}: {{ .Values.mysql.config.database.value }}
-  {{ .Values.mysql.config.user.key }}: {{ .Values.mysql.config.user.value }}
+  {{ .Values.mysql.config.username.key }}: {{ .Values.mysql.config.username.value }}

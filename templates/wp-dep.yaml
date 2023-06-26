@@ -23,17 +23,17 @@ spec:
           value: {{ .Values.mysql.name }}
         - name: WORDPRESS_DB_USER
           valueFrom:
-            configMapRef:
+            configMapKeyRef:
               name: {{ .Values.mysql.config.name }}
               key: {{ .Values.mysql.config.username.key }}
         - name: WORDPRESS_DB_PASSWORD
           valueFrom:
-            configMapRef:
+            configMapKeyRef:
               name: {{ .Values.mysql.secret.name }}
               key: {{ .Values.mysql.secret.password.key }}
         - name: WORDPRESS_DB_NAME
           valueFrom:
-            configMapRef:
+            configMapKeyRef:
               name: {{ .Values.mysql.config.name }}
               key: {{ .Values.mysql.config.database.key }}
         ports:

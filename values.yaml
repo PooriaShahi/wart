@@ -27,7 +27,7 @@ mysql:
     size: 5
   config:
     name: mysql-configmap
-    user: 
+    username: 
       key: username
       value: wp
     database:
