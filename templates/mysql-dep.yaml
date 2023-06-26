@@ -11,7 +11,7 @@ spec:
   replicas: {{ default 1 .Values.mysql.replica | int }}
   template:
     metadata:
-      labe
+      label:
         app: {{ .Values.mysql.name }}
     spec:
       containers:
