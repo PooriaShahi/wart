@@ -34,7 +34,7 @@ spec:
               key: {{ .Values.mysql.config.username.key}}
         - name: MYSQL_PASSWORD
           valueFrom:
-            configMapKeyRef:
+            secretKeyRef:
               name: {{ .Values.mysql.secret.name }}
               key: {{ .Values.mysql.secret.password.key }}
         - name: MYSQL_DATABASE
