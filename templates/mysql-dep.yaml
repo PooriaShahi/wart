@@ -11,7 +11,7 @@ spec:
   replicas: {{ default 1 .Values.mysql.replica | int }}
   template:
     metadata:
-      labels:
+      labe
         app: {{ .Values.mysql.name }}
     spec:
       containers:
@@ -30,8 +30,8 @@ spec:
         - name: MYSQL_USER
           valueFrom:
             configMapKeyRef:
-              name: {{ .Values.mysql.configmap.name }}
-              key: {{ .Values.mysql.configmap.username.key}}
+              name: {{ .Values.mysql.config.name }}
+              key: {{ .Values.mysql.config.username.key}}
         - name: MYSQL_PASSWORD
           valueFrom:
             configMapKeyRef:
@@ -40,8 +40,8 @@ spec:
         - name: MYSQL_DATABASE
           valueFrom:
             configMapKeyRef:
-              name: {{ .Values.mysql.configmap.name }}
-              key: {{ .Values.mysql.configmap.database.key }}
+              name: {{ .Values.mysql.config.name }}
+              key: {{ .Values.mysql.config.database.key }}
         ports:
         - containerPort: {{ .Values.mysql.internalPort | int }}
         volumeMounts:
