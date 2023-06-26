@@ -37,7 +37,7 @@ mysql:
     name: mysql-secret
     rootPassword:
       key: rootPassword
-      value: "hadsgdauhoasidjmasld"
+      value: "hadsgdauhoasidjmasldasdad"
     password:
       key: password
       value: "hadsgdauhoasidj"
