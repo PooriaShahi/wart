@@ -28,7 +28,7 @@ spec:
               key: {{ .Values.mysql.config.username.key }}
         - name: WORDPRESS_DB_PASSWORD
           valueFrom:
-            configMapKeyRef:
+            secretKeyRef:
               name: {{ .Values.mysql.secret.name }}
               key: {{ .Values.mysql.secret.password.key }}
         - name: WORDPRESS_DB_NAME
