@@ -31,7 +31,7 @@ spec:
           valueFrom:
             configMapKeyRef:
               name: {{ .Values.mysql.configmap.name }}
-              key: {{ .Values.mysql.configmap.username.key Key}}
+              key: {{ .Values.mysql.configmap.username.key}}
         - name: MYSQL_PASSWORD
           valueFrom:
             configMapKeyRef:
