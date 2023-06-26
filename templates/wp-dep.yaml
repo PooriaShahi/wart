@@ -38,11 +38,3 @@ spec:
               key: {{ .Values.mysql.config.database.key }}
         ports:
         - containerPort: {{ .Values.wordpress.internalPort | int }}
-        livenessProbe:
-          httpGet:
-            path: /
-            port: {{ .Values.wordpress.internalPort | int }}
-        readinessProbe:
-          httpGet:
-            path: /
-            port: {{ .Values.wordpress.internalPort | int }}
