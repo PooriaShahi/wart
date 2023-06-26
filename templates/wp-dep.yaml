@@ -18,6 +18,24 @@ spec:
       - name: {{ .Values.wordpress.containerName }}
         image: "{{ .Values.wordpress.image }}"
         imagePullPolicy: IfNotPresent
+        env:
+        - name: WORDPRESS_DB_HOST
+          value: {{ .Values.mysql.name }}
+        - name: WORDPRESS_DB_USER
+          valueFrom:
+            configMapRef:
+              name: {{ .Values.mysql.config.name }}
+              key: {{ .Values.mysql.config.username.key }}
+        - name: WORDPRESS_DB_PASSWORD
+          valueFrom:
+            configMapRef:
+              name: {{ .Values.mysql.secret.name }}
+              key: {{ .Values.mysql.secret.password.key }}
+        - name: WORDPRESS_DB_NAME
+          valueFrom:
+            configMapRef:
+              name: {{ .Values.mysql.config.name }}
+              key: {{ .Values.mysql.config.database.key }}
         ports:
         - containerPort: {{ .Values.wordpress.internalPort | int }}
         livenessProbe:
