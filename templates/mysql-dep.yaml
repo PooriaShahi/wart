@@ -26,7 +26,22 @@ spec:
           valueFrom:
             secretKeyRef:
               name: {{ .Values.mysql.secret.name }}
+              key: {{ .Values.mysql.secret.rootPassword.key }}
+        - name: MYSQL_USER
+          valueFrom:
+            configMapKeyRef:
+              name: {{ .Values.mysql.config.name }}
+              key: {{ .Values.mysql.config.username.key}}
+        - name: MYSQL_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: {{ .Values.mysql.secret.name }}
               key: {{ .Values.mysql.secret.password.key }}
+        - name: MYSQL_DATABASE
+          valueFrom:
+            configMapKeyRef:
+              name: {{ .Values.mysql.config.name }}
+              key: {{ .Values.mysql.config.database.key }}
         ports:
         - containerPort: {{ .Values.mysql.internalPort | int }}
         volumeMounts:
