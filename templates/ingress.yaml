@@ -7,10 +7,6 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  tls:
-  - hosts:
-    - {{ .Values.wordpress.ingress.host }}
-    secretName: wordpress-tls
   - host: {{ .Values.wordpress.ingress.host }}
     http:
       paths:
@@ -21,3 +17,7 @@ spec:
             name: {{ .Values.wordpress.name }}
             port: 
               number: {{ .Values.wordpress.service.externalPort }}
+  tls:
+  - hosts:
+    - {{ .Values.wordpress.ingress.host }}
+    secretName: wordpress-tls
