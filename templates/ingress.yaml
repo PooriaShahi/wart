@@ -9,7 +9,7 @@ spec:
     http:
       paths:
       - path: /
-        pathType: *
+        pathType: "*"
         backend:
           service:
             name: {{ .Values.wordpress.name }}
