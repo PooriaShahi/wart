@@ -8,8 +8,8 @@ spec:
   - host: {{ .Values.wordpress.ingress.host }}
     http:
       paths:
-      - path: /
-        pathType: Exact
+      - path: "/"
+        pathType: Prefix
         backend:
           service:
             name: {{ .Values.wordpress.name }}
