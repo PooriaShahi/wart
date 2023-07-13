@@ -13,4 +13,5 @@ spec:
         backend:
           service:
             name: {{ .Values.wordpress.name }}
-            port: {{ .Values.wordpress.service.externalPort }}
+            port: 
+              number: {{ .Values.wordpress.service.externalPort }}
