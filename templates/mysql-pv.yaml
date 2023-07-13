@@ -9,6 +9,6 @@ spec:
   capacity:
     storage: {{ $size := print .Values.mysql.pvc.size "Gi" }}{{ $size }}
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
   hostPath:
     path: "{{ .Values.mysql.pv.path }}"

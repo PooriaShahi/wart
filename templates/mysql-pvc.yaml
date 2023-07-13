@@ -4,7 +4,7 @@ metadata:
   name: {{ .Values.mysql.pvc.name }}
 spec:
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
   storageClassName: {{ .Values.mysql.pvc.storageClass }}
   resources:
     requests:
