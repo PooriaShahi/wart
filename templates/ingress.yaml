@@ -6,6 +6,10 @@ metadata:
     cert-manager.io/cluster-issuer: {{ .Values.wordpress.name }}
 spec:
   ingressClassName: nginx
+  tls:
+  - hosts:
+    - {{ .Values.wordpress.ingress.host }}
+    secretName: wordpress-tls
   rules:
   - host: {{ .Values.wordpress.ingress.host }}
     http:
@@ -17,7 +21,3 @@ spec:
             name: {{ .Values.wordpress.name }}
             port: 
               number: {{ .Values.wordpress.service.externalPort }}
-  tls:
-  - hosts:
-    - {{ .Values.wordpress.ingress.host }}
-    secretName: wordpress-tls
