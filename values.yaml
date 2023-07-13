@@ -10,7 +10,9 @@ wordpress:
     name: wp-svc
   ingress:
     name: wp-ingress
-    host: wp.teammelli.fun   
+    host: wp.teammelli.fun  
+  issuer:
+    email: PooriaPro@gmail.com 
 mysql:
   replica: 1
   name: mysql-app
