@@ -8,6 +8,9 @@ wordpress:
     type: ClusterIP
     externalPort: 80
     name: wp-svc
+  ingress:
+    name: wp-ingress
+    host: wp.teammelli.fun   
 mysql:
   replica: 1
   name: mysql-app

@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ .Values.wordpress.ingress.name }}
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: {{ .Values.wordpress.ingress.host }}
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: {{ .Values.wordpress.name }}
+            port: {{ .Values.wordpress.service.externalPort }}
