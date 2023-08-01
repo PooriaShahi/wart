@@ -14,10 +14,17 @@ spec:
   - host: {{ .Values.wordpress.ingress.host }}
     http:
       paths:
-      - path: "/"
+      - path: "/wordpress"
         pathType: Prefix
         backend:
           service:
-            name: {{ .Values.wordpress.name }}
+            name: {{ .Values.wordpress.service.name }}
             port: 
               number: {{ .Values.wordpress.service.externalPort }}
+      - path: "/dbadmin"
+        pathType: Prefix
+        backend:
+          service:
+            name: {{ .Values.pma.service.name }}
+            port: 
+              number: {{ .Values.pma.service.externalPort }}

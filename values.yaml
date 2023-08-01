@@ -46,3 +46,9 @@ mysql:
     password:
       key: password
       value: "hadsgdauhoasidj"
+pma:
+  name: pma-app
+  internalPort: 80
+  service:
+    name: pma-svc
+    externalPort: 80
