@@ -52,3 +52,5 @@ pma:
   service:
     name: pma-svc
     externalPort: 80
+  ingress:
+    name: pma-ingress
