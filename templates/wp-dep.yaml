@@ -41,4 +41,4 @@ spec:
         lifecycle:
           postStart:
             exec:
-              command: ["/bin/sh", "-c", "ln -s /var/www/html /var/www/html/wordpress && chown www-data:www-data -R /var/www/html/wordpress && curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && chmod +x wp-cli.phar && mv wp-cli.phar /usr/local/bin/wp && wp core install --url="{{ .Values.wordpress.ingress.path }}" --title="Sample Title" --admin_name=admin --admin_password=admin --admin_email=you@domain.com --allow-root"]
+              command: ["/bin/sh", "-c", "ln -s /var/www/html /var/www/html/wordpress && chown www-data:www-data -R /var/www/html/wordpress && curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && chmod +x wp-cli.phar && mv wp-cli.phar /usr/local/bin/wp && wp core install --url=\"{{ .Values.wordpress.ingress.path }}\" --title=\"Sample Title\" --admin_name=admin --admin_password=admin --admin_email=you@domain.com --allow-root"]
