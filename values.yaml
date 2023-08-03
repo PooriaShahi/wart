@@ -11,6 +11,7 @@ wordpress:
   ingress:
     name: wp-ingress
     host: wp.teammelli.fun
+    path: https://wp.teammelli.fun/wordpress
   issuer:
     email: PooriaPro@gmail.com
 mysql:
